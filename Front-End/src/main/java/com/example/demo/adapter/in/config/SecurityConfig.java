@@ -28,6 +28,9 @@ public class SecurityConfig {
     
     /** The custom success handler. */
     private final CustomSuccessHandler customSuccessHandler;
+    
+    /** The custom auth failure handler. */
+    private final CustomAuthFailureHandler customFailureHandler;
 
     /**
      * Http session event publisher.
@@ -49,7 +52,7 @@ public class SecurityConfig {
      */
     // Configuración de seguridad
     @Bean
-    SecurityFilterChain securityFilterChain(HttpSecurity http, CustomAuthFailureHandler failureHandler) {
+    SecurityFilterChain securityFilterChain(HttpSecurity http) {
         http
         	.authenticationProvider(customAuthProvider)
         	.authorizeHttpRequests(auth -> auth
@@ -63,7 +66,7 @@ public class SecurityConfig {
                 .loginPage("/auth")                 // GET /login muestra el formulario
                 .loginProcessingUrl("/auth")        // POST /login procesa login
                 .successHandler(customSuccessHandler)   // redirige a /home tras login exitoso
-                .failureHandler(failureHandler)
+                .failureHandler(customFailureHandler)
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .permitAll()

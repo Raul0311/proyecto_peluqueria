@@ -1,9 +1,15 @@
 package com.example.demo.adapter.out.persistence;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.Named;
 
 import com.example.demo.adapter.out.persistence.roles.RoleMapper;
+import com.example.demo.adapter.out.persistence.roles.UserRolesEntity;
+import com.example.demo.domain.Role;
 import com.example.demo.domain.User;
 
 /**
@@ -21,7 +27,7 @@ public interface UserMapper {
 	@Mapping(target = "userToken", ignore = true)
     @Mapping(target = "rolesStr", ignore = true)
     @Mapping(target = "passw", ignore = true)
-	@Mapping(target = "roles", source = "roles")
+	@Mapping(target = "roles", source = "userRoles", qualifiedByName = "mapUserRolesToRoles")
     User toDomain(UserEntity userEntity);
 
     /**
@@ -32,4 +38,20 @@ public interface UserMapper {
      */
 	@Mapping(target = "userRoles", ignore = true)
     UserEntity toEntity(User user);
+	
+	// Método auxiliar para MapStruct: convierte List<UserRolesEntity> → List<Role>
+    @Named("mapUserRolesToRoles")
+    default List<Role> mapUserRolesToRoles(List<UserRolesEntity> userRoles) {
+        if (userRoles == null) return List.of();
+        return userRoles.stream()
+                        .map(UserRolesEntity::getRole)   // List<RoleEntity>
+                        .map(RoleEntity -> {
+                            Role r = new Role();
+                            r.setId(RoleEntity.getId());
+                            r.setName(RoleEntity.getRoleName());
+                            r.setDescription(RoleEntity.getDescription());
+                            return r;
+                        })
+                        .collect(Collectors.toList());
+    }
 }
