@@ -226,7 +226,7 @@
 	    <snapshotRepository>
 	        <id>artifactory-snapshots</id>
 	        <name>Snapshots</name>
-	        <url>http://192.168.0.120:8081/artifactory/libs-snapshot-local</url>
+	        <url>http://192.168.0.106:8082/artifactory/libs-snapshot-local</url>
 	    </snapshotRepository>
 	</distributionManagement>
 </project>
