@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.0.0-RC2</version>
+        <version>3.5.9</version>
         <relativePath/>
     </parent>
 
@@ -39,7 +39,7 @@
 		<!-- Source: https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-webmvc</artifactId>
+		    <artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
         <dependency>
@@ -123,24 +123,15 @@
 
         <!-- Tests -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security-test</artifactId>
-			<scope>test</scope>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-test</artifactId>
+		    <scope>test</scope>
 		</dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webmvc-test</artifactId>
-			<scope>test</scope>
+		
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-test</artifactId>
+		    <scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -221,4 +212,12 @@
             </releases>
         </pluginRepository>
     </pluginRepositories>
+    
+    <distributionManagement>
+	    <snapshotRepository>
+	        <id>artifactory-snapshots</id>
+	        <name>Snapshots</name>
+	        <url>http://192.168.0.106:8082/artifactory/libs-snapshot-local</url>
+	    </snapshotRepository>
+	</distributionManagement>
 </project>

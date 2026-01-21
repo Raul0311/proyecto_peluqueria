@@ -52,7 +52,7 @@ public class SecurityConfig {
      */
     // Configuración de seguridad
     @Bean
-    SecurityFilterChain securityFilterChain(HttpSecurity http) {
+    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
         	.authenticationProvider(customAuthProvider)
         	.authorizeHttpRequests(auth -> auth

@@ -2,11 +2,11 @@ package com.example.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
-import org.springframework.boot.security.autoconfigure.web.servlet.ServletWebSecurityAutoConfiguration;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-@ImportAutoConfiguration(exclude = ServletWebSecurityAutoConfiguration.class)
+@ImportAutoConfiguration(exclude = SecurityAutoConfiguration.class)
 class BackEndApplicationTests {
 
     @Test
