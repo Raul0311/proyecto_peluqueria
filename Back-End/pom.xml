@@ -148,11 +148,11 @@
 	    </plugins>
 	</build>
 	<distributionManagement>
-		<Repository>
+		<repository>
 	        <id>artifactory-release</id>
 	        <name>Releases</name>
 	        <url>http://192.168.0.106:8082/artifactory/libs-release-local</url>
-	    </Repository>
+	    </repository>
 		
 	    <snapshotRepository>
 	        <id>artifactory-snapshots</id>
