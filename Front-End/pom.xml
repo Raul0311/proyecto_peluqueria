@@ -212,12 +212,4 @@
             </releases>
         </pluginRepository>
     </pluginRepositories>
-    
-    <distributionManagement>
-	    <snapshotRepository>
-	        <id>artifactory-snapshots</id>
-	        <name>Snapshots</name>
-	        <url>http://192.168.0.106:8082/artifactory/libs-snapshot-local</url>
-	    </snapshotRepository>
-	</distributionManagement>
 </project>
