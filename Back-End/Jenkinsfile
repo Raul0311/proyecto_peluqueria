@@ -1,0 +1,39 @@
+// pipeline {
+//     agent any
+    
+//     tools {
+//         maven 'maven_3.9.4' // Usa el nombre exacto configurado en tu Jenkins
+//         jdk 'jdk-21'        // El JDK 21 que ya estás usando en tu Ubuntu
+//     }
+
+//     stages {
+//         stage('Checkout') {
+//             steps {
+                // Descarga el código desde tu nuevo Gitea local
+//                 checkout scm
+//             }
+//         }
+
+//         stage('Build & Test') {
+//             steps {
+//                 sh 'mvn clean compile test'
+//             }
+//         }
+
+//         stage('SonarQube Analysis') {
+//             steps {
+                // Requiere tener configurado el servidor SonarQube en Jenkins 
+//                 withSonarQubeEnv('SonarQube') {
+//                     sh 'mvn sonar:sonar'
+//                 }
+//             }
+//         }
+
+//         stage('Deploy to Artifactory') {
+//             steps {
+                // Envía el .war final a tu repositorio local 
+//                 sh 'mvn deploy -DskipTests'
+//             }
+//         }
+//     }
+// }
